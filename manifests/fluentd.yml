@@ -1,0 +1,43 @@
+---
+name: fluentd
+
+stemcells:
+- alias: default
+  os: ubuntu-xenial
+  version: latest
+
+releases:
+- name: fluentd
+  version: latest
+
+update:
+  canaries: 2
+  max_in_flight: 1
+  canary_watch_time: 5000-60000
+  update_watch_time: 5000-60000
+
+instance_groups:
+- name: emptyvm
+  azs: [z1]
+  instances: 1
+  jobs:
+  - name: fluentd-transporter
+    release: fluentd
+    properties: {}
+  - name: fluentd-server
+    release: fluentd
+    properties: {}
+  - name: fluentd-plugins
+    release: fluentd
+    properties:
+      fluentd:
+        plugins:
+        - fluent-plugin-elasticsearch
+        - fluent-plugin-datadog
+        - fluent-plugin-syslog_rfc5424 
+        - fluent-plugin-s3
+  vm_type: small
+  stemcell: default
+  persistent_disk: 4096
+  networks:
+  - name: default

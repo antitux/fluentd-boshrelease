@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -eux
+
+export JOB_NAME=fluentd-transporter
+export PKG_PATH=/var/vcap/packages
+export JOB_PATH=/var/vcap/jobs/${JOB_NAME}
+export TEMP=$(mktemp -d)
+source ${PKG_PATH}/ruby-*/bosh/runtime.env
+source ${PKG_PATH}/fluentd/bosh/runtime.env
+source ${PKG_PATH}/git/bin/runtime.env
+
+# pre-start tasks go here.
+
+
+# Run some quick sanity tests.
+echo "--- Begin Tests ---"
+
+echo "Testing Ruby.."
+
+ruby -e 'puts "Ruby Sanity Test Passed."'
+
+echo "--- Beginning fluentd Installation Sanity Checks ---"
+
+echo "Generating Temporary Dry-Run Config.."
+bundle exec fluentd -s ${TEMP}
+
+echo "Testing Dry-Run Config.."
+bundle exec fluentd -c ${TEMP}/fluent.conf --dry-run
+
+echo "fluentd sanity check passed. Cleaning Up."
+
+rm -rfv ${TEMP}
+
+echo "--- End Tests ---"

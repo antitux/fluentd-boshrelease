@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -eux
+source "${BOSH_PACKAGES_DIR:-/var/vcap/packages}/git/bin/runtime.env"
+
+source "${BOSH_PACKAGES_DIR:-/var/vcap/packages}/ruby-2.6.6-r0.36.0/bosh/compile.env"
+
+tar -zxvf ${BOSH_COMPILE_TARGET}/fluentd/v1.11.5.tar.gz -C ${BOSH_INSTALL_TARGET} --strip-components=1
+
+bosh_bundle --gemfile=${BOSH_INSTALL_TARGET}/Gemfile
+bosh_generate_runtime_env

@@ -1,0 +1,9 @@
+---
+name: fluentd
+
+dependencies:
+- ruby-2.6.6-r0.36.0
+- git
+
+files:
+- fluentd/v1.11.5.tar.gz

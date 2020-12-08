@@ -1,0 +1,8 @@
+---
+name: git
+
+dependencies:
+- ruby-2.6.6-r0.36.0
+
+files:
+- git/git-2.29.2.tar.gz

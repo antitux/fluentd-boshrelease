@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -eux
+source "${BOSH_PACKAGES_DIR:-/var/vcap/packages}/ruby-2.6.6-r0.36.0/bosh/compile.env"
+apt-get update
+apt-get install libexpat1-dev -y
+
+tar -zxvf git/git-2.29.2.tar.gz
+
+cd git-2.29.2
+make prefix=${BOSH_INSTALL_TARGET} all
+make prefix=${BOSH_INSTALL_TARGET} install
+
+echo 'PATH=/var/vcap/packages/git/bin:$PATH' > ${BOSH_INSTALL_TARGET}/bin/runtime.env

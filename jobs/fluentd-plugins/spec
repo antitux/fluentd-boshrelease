@@ -1,0 +1,16 @@
+---
+name: fluentd-plugins
+
+templates:
+  pre-start.erb: bin/pre-start
+
+packages:
+- ruby-2.6.6-r0.36.0
+- fluentd
+- git
+
+properties:
+  fluentd:
+    plugins:
+     description: "List of plugins"
+     default: []

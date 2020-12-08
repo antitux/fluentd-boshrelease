@@ -1,0 +1,8 @@
+/fluentd/v1.11.5.tar.gz:
+  size: 814695
+  object_id: fc4d2625-7897-49d0-526d-7082c756cd2c
+  sha: sha256:c25d41159df1db8533a3a6f43f1da311766cc4bf13ff14eab5b48e4356f3ffdd
+git/git-2.29.2.tar.gz:
+  size: 9611952
+  object_id: bf86638e-952c-475c-6069-5e6f6c9fa0de
+  sha: sha256:8cc15abf2bc1cfa4b8acc37025cf92ec73c20efdb3f243793fef71dfe87478be
