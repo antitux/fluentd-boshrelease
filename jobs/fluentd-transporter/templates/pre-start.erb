@@ -16,21 +16,13 @@ source ${PKG_PATH}/git/bin/runtime.env
 
 # Run some quick sanity tests.
 echo "--- Begin Tests ---"
-
 echo "Testing Ruby.."
-
 ruby -e 'puts "Ruby Sanity Test Passed."'
-
 echo "--- Beginning fluentd Installation Sanity Checks ---"
-
 echo "Generating Temporary Dry-Run Config.."
 bundle exec fluentd -s ${TEMP}
-
 echo "Testing Dry-Run Config.."
 bundle exec fluentd -c ${TEMP}/fluent.conf --dry-run
-
 echo "fluentd sanity check passed. Cleaning Up."
-
 rm -rfv ${TEMP}
-
 echo "--- End Tests ---"
