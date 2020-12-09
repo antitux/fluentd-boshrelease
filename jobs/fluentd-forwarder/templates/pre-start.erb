@@ -2,7 +2,7 @@
 set -eux
 
 export BOSH_INSTANCE="$( cat /var/vcap/instance/name )/$( cat /var/vcap/instance/id )"
-export JOB_NAME=fluentd-server
+export JOB_NAME=fluentd-forwarder
 export PKG_PATH=/var/vcap/packages
 export JOB_PATH=/var/vcap/jobs/${JOB_NAME}
 export TEMP=$(mktemp -d)

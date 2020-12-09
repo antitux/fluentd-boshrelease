@@ -1,5 +1,5 @@
 ---
-name: fluentd-transporter
+name: fluentd-forwarder
 
 templates:
   pre-start.erb: bin/pre-start

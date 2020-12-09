@@ -4,14 +4,14 @@
 
 This is used to install fluentd for log collection and transport.
 
-### fluentd-server
+### fluentd-aggregator
 Deploys a primary server which will forward data to either logstash or directly to elasticsearch. Used in conjunction with `fluentd-plugins`
 
-### fluentd-transporter
-In a runtime config, will job will transfer all logs to the defined `fluentd-server` cluster.
+### fluentd-forwarder
+In a runtime config, will job will transfer all logs to the defined `fluentd-aggregator` cluster.
 
 ### fluentd-plugins
-Installs plugins for either `fluentd-server` or `fluentd-transporter`.
+Installs plugins for either `fluentd-aggregator` or `fluentd-forwarder`.
 
 
 ## Usage
@@ -28,7 +28,7 @@ bosh deploy -d fluentd manifests/fluentd.yml
 |---|---|---|
 | | | |
 To be filled out.
-### fluented-transporter
+### fluented-forwarder
 |varliable|description|default|
 |---|---|---|
 | | | |
@@ -37,3 +37,4 @@ To be filled out.
 | variable | description | default |
 | --- | --- | --- |
 | fluentd.plugin | A list of plugins to install.| [] |
+

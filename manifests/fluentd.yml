@@ -21,7 +21,7 @@ instance_groups:
   azs: [z1]
   instances: 1
   jobs:
-  - name: fluentd-transporter
+  - name: fluentd-forwarder
     release: fluentd
     properties: {}
   - name: fluentd-server
