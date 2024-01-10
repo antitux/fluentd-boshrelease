@@ -1,3 +1,5 @@
+# This probably doesn't work anymore.
+
 # Fluentd Boshrelease
 
 ## Description
